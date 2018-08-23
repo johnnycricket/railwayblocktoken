@@ -3,7 +3,9 @@ import ReactDom from 'react-dom';
 
 class App extends React.Component {
     render() {
-        return <div>Hello app.</div>;
+        return <div>
+            <h1>Railway Block App!</h1>
+            </div>;
     };
 }
 
