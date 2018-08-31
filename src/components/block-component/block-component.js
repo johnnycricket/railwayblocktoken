@@ -6,32 +6,38 @@ class Block extends React.Component {
         super(props);
         this.state = {
             staff: true,
+            given: false,
             trainname: '',
+            blockname: '',
         }
     }
 
     giveStaff() {
-
+        if(this.state.staff) {
+            this.setState({staff: false, given: true})
+        }
     }
 
     getStaff() {
-
+        if(!this.state.staff) {
+            this.setState({staff: true, given: false});
+        }
     }
 
-    nameService() {
-
+    nameService(name) {
+        this.state.name = name;
     }
 
     render() {
         return <div>
             <div>
-                <button>{this.props.upend}</button>
+                <button disabled="{!this.state.staff}" onclick="giveStaff(this.props.upend)">{this.props.upend}</button>
             </div>
             <div>
-                <Train show="false" name="this.state.trainname" staff="" block="this.state.block"/>
+                <Train show="false" name="this.state.trainname" staff="this.state.staffOut" block="this.state.block"/>
             </div>
             <div>
-                <button>{this.props.downend}</button>
+                <button disabled="{!this.state.staff}" onclick="giveStaff(this.props.downend)">{this.props.downend}</button>
             </div>
         </div>
 
