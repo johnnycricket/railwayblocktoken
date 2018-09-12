@@ -16,6 +16,9 @@ class Block extends React.Component {
         if(this.state.staff) {
             this.setState({staff: false, given: true})
         }
+        if(!this.state.trainname) {
+            
+        }
     }
 
     getStaff() {
@@ -31,13 +34,13 @@ class Block extends React.Component {
     render() {
         return <div>
             <div>
-                <button disabled="{!this.state.staff}" onclick="giveStaff(this.props.upend)">{this.props.upend}</button>
+                <BlockEnds end="{this.props.upend}" staff="{this.state.staff}"/>
             </div>
             <div>
                 <Train show="false" name="this.state.trainname" staff="this.state.staffOut" block="this.state.block"/>
             </div>
             <div>
-                <button disabled="{!this.state.staff}" onclick="giveStaff(this.props.downend)">{this.props.downend}</button>
+                <BlockEnds end="{this.props.downend}" staff="{this.state.staff}"/>
             </div>
         </div>
 
