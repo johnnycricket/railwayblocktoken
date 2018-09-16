@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class Train extends React.Component {
+export default class Train extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -26,11 +26,10 @@ class Train extends React.Component {
                 <p>{this.props.name}</p>
                 <p>Staff: {this.props.staff}</p>
                 <p>In {this.props.block}</p>
-                <button onclick={this.arrival}>Arrive - Turn in Staff</button>
+                <button onClick={this.arrival}>Arrive - Turn in Staff</button>
             </div>
         } else {
             return <div></div>
-        }
-        
+        } 
     }
 }

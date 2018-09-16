@@ -19748,7 +19748,266 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"index.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"components/block-ends-component/block-ends-component.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BlockEnds = function (_React$Component) {
+    _inherits(BlockEnds, _React$Component);
+
+    function BlockEnds(props) {
+        _classCallCheck(this, BlockEnds);
+
+        var _this = _possibleConstructorReturn(this, (BlockEnds.__proto__ || Object.getPrototypeOf(BlockEnds)).call(this, props));
+
+        _this.state = {
+            staff: true
+        };
+        return _this;
+    }
+
+    _createClass(BlockEnds, [{
+        key: 'render',
+        value: function render() {
+            if (this.state.staff) {
+                return _react2.default.createElement(
+                    'button',
+                    { onClick: '' },
+                    this.props.name
+                );
+            } else {
+                return _react2.default.createElement(
+                    'button',
+                    { disabled: true },
+                    this.props.name
+                );
+            }
+        }
+    }]);
+
+    return BlockEnds;
+}(_react2.default.Component);
+
+exports.default = BlockEnds;
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/train-component/train-component.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Train = function (_React$Component) {
+    _inherits(Train, _React$Component);
+
+    function Train(props) {
+        _classCallCheck(this, Train);
+
+        var _this = _possibleConstructorReturn(this, (Train.__proto__ || Object.getPrototypeOf(Train)).call(this, props));
+
+        _this.state = {
+            show: false,
+            staff: ''
+        };
+        _this.state.show = _this.props.show;
+        _this.state.staff = _this.props.staff;
+        _this.arrival = _this.arrival.bind(_this);
+        return _this;
+    }
+
+    _createClass(Train, [{
+        key: 'arrival',
+        value: function arrival() {
+            //arrive and remove the staff token from the train.
+            this.state.show = false;
+            this.state.staff = '';
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (this.state.show) {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('i', null),
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        'Service'
+                    ),
+                    _react2.default.createElement('i', null),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        this.props.name
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Staff: ',
+                        this.props.staff
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'In ',
+                        this.props.block
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.arrival },
+                        'Arrive - Turn in Staff'
+                    )
+                );
+            } else {
+                return _react2.default.createElement('div', null);
+            }
+        }
+    }]);
+
+    return Train;
+}(_react2.default.Component);
+
+exports.default = Train;
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/block-component/block-component.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _blockEndsComponent = require('../block-ends-component/block-ends-component');
+
+var _blockEndsComponent2 = _interopRequireDefault(_blockEndsComponent);
+
+var _trainComponent = require('../train-component/train-component');
+
+var _trainComponent2 = _interopRequireDefault(_trainComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Block = function (_React$Component) {
+    _inherits(Block, _React$Component);
+
+    function Block(props) {
+        _classCallCheck(this, Block);
+
+        var _this = _possibleConstructorReturn(this, (Block.__proto__ || Object.getPrototypeOf(Block)).call(this, props));
+
+        _this.state = {
+            staff: true,
+            given: false,
+            trainname: '',
+            blockname: ''
+        };
+        _this.state.blockname = _this.props.blockname;
+        return _this;
+    }
+
+    _createClass(Block, [{
+        key: 'giveStaff',
+        value: function giveStaff() {
+            if (this.state.staff) {
+                this.setState({ staff: false, given: true });
+            }
+            if (!this.state.trainname) {}
+        }
+    }, {
+        key: 'getStaff',
+        value: function getStaff() {
+            if (!this.state.staff) {
+                this.setState({ staff: true, given: false });
+            }
+        }
+    }, {
+        key: 'nameService',
+        value: function nameService(name) {
+            this.state.name = name;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: '{this.props.upend}', staff: '{this.state.staff}' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_trainComponent2.default, { show: 'false', name: 'this.state.trainname', staff: 'this.state.staffOut', block: 'this.state.block' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: '{this.props.downend}', staff: '{this.state.staff}' })
+                )
+            );
+        }
+    }]);
+
+    return Block;
+}(_react2.default.Component);
+
+exports.default = Block;
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../block-ends-component/block-ends-component":"components/block-ends-component/block-ends-component.js","../train-component/train-component":"components/train-component/train-component.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19760,6 +20019,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _blockComponent = require('./components/block-component/block-component');
+
+var _blockComponent2 = _interopRequireDefault(_blockComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19788,7 +20051,8 @@ var App = function (_React$Component) {
                     'h1',
                     null,
                     'Railway Block App!'
-                )
+                ),
+                _react2.default.createElement(_blockComponent2.default, { blockname: 'Found Jovial - Over Sey' })
             );
         }
     }]);
@@ -19798,7 +20062,7 @@ var App = function (_React$Component) {
 
 var mount = document.getElementById('app');
 _reactDom2.default.render(_react2.default.createElement(App, null), mount);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/block-component/block-component":"components/block-component/block-component.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -19827,7 +20091,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '59801' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61579' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

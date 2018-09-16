@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import BlockEnds from '../block-ends-component/block-ends-component'
+import Train from '../train-component/train-component'
 
-class Block extends React.Component {
+export default class Block extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -10,6 +12,7 @@ class Block extends React.Component {
             trainname: '',
             blockname: '',
         }
+        this.state.blockname = this.props.blockname;
     }
 
     giveStaff() {
@@ -43,6 +46,5 @@ class Block extends React.Component {
                 <BlockEnds end="{this.props.downend}" staff="{this.state.staff}"/>
             </div>
         </div>
-
     }
 }

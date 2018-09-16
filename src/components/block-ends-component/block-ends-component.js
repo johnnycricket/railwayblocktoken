@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class BlockEnds extends ReactDom {
+export default class BlockEnds extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            staff: true
         }
     }
 
     render() {
         if(this.state.staff){
-            <button onclick="">{this.props.name}</button>
+            return <button onClick="">{this.props.name}</button>
         } else {
-            <button disabled>{this.props.name}</button>
+            return <button disabled>{this.props.name}</button>
         }
-        
     }
 }
