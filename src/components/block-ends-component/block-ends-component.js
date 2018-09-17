@@ -8,12 +8,17 @@ export default class BlockEnds extends React.Component {
             staff: true
         }
         this.state.staff = this.props.staff;
+        this.handleClick = this.handleClick.bind(this);
     }
     
+    handleClick() {
+        this.setState({staff: false})
+        this.props.toExchangeStaff(true);
+    }
 
     render() {
         if(this.state.staff){
-            return <button>{this.props.end}</button>
+            return <button onClick={this.handleClick}>{this.props.end}</button>
         } else {
             return <button disabled>{this.props.end}</button>
         }

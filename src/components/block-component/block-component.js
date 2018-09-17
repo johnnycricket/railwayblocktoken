@@ -15,18 +15,14 @@ export default class Block extends React.Component {
         this.state.blockname = this.props.blockname;
     }
 
-    giveStaff() {
-        if(this.state.staff) {
+    exchangeStaff(value) {
+        //pass in true: train takes the staff.
+        //pass in false: train returns staff.
+        if(value) {
             this.setState({staff: false, given: true})
         }
-        if(!this.state.trainname) {
+        if(!value) {
             this.setState({staff: true, given: false})
-        }
-    }
-
-    getStaff() {
-        if(!this.state.staff) {
-            this.setState({staff: true, given: false});
         }
     }
 
@@ -36,13 +32,13 @@ export default class Block extends React.Component {
                 <h2>{this.props.blockname}</h2>
             </div>
             <div>
-                <BlockEnds end={this.props.upend} staff={this.state.staff} />
+                <BlockEnds end={this.props.upend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
             </div>
             <div>
-                <Train show="false" name={this.state.trainname} staff={this.state.staffOut} block={this.state.blockname} />
+                <Train show={false} staff={this.state.given} block={this.state.blockname} toExchangeStaff={this.exchangeStaff} />
             </div>
             <div>
-                <BlockEnds end={this.props.downend} staff={this.state.staff} />
+                <BlockEnds end={this.props.downend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
             </div>
         </div>
     }

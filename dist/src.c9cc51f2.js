@@ -19785,16 +19785,23 @@ var BlockEnds = function (_React$Component) {
             staff: true
         };
         _this.state.staff = _this.props.staff;
+        _this.handleClick = _this.handleClick.bind(_this);
         return _this;
     }
 
     _createClass(BlockEnds, [{
+        key: 'handleClick',
+        value: function handleClick() {
+            this.setState({ staff: false });
+            this.props.toExchangeStaff(true);
+        }
+    }, {
         key: 'render',
         value: function render() {
             if (this.state.staff) {
                 return _react2.default.createElement(
                     'button',
-                    null,
+                    { onClick: this.handleClick },
                     this.props.end
                 );
             } else {
@@ -19811,6 +19818,102 @@ var BlockEnds = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = BlockEnds;
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/train-setup-component/train-setup-component.js":[function(require,module,exports) {
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TrainSetup = function (_React$Component) {
+    _inherits(TrainSetup, _React$Component);
+
+    function TrainSetup(props) {
+        _classCallCheck(this, TrainSetup);
+
+        var _this = _possibleConstructorReturn(this, (TrainSetup.__proto__ || Object.getPrototypeOf(TrainSetup)).call(this, props));
+
+        state = {
+            name: '',
+            direction: '',
+            show: false
+        };
+        _this.state.show = _this.props.show;
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
+    }
+
+    _createClass(TrainSetup, [{
+        key: 'handleChange',
+        value: function handleChange(event) {
+            console.log(event);
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit() {
+            this.props.onNewTrain({ name: this.state.name, direction: this.state.direction });
+            event.preventDefault();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (!this.state.name && this.state.show) {
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'label',
+                        { 'for': 'service-name' },
+                        'Service Name:'
+                    ),
+                    _react2.default.createElement('input', { type: 'text', id: 'service', name: 'service-name', value: this.state.name }),
+                    _react2.default.createElement(
+                        'label',
+                        { 'for': 'direction' },
+                        'Direction:'
+                    ),
+                    _react2.default.createElement(
+                        'select',
+                        { id: 'direction', name: 'direction', value: this.state.direction },
+                        _react2.default.createElement(
+                            'option',
+                            { value: 'up' },
+                            'Up'
+                        ),
+                        _react2.default.createElement(
+                            'option',
+                            { value: 'down' },
+                            'Down'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'input',
+                        { type: 'submit' },
+                        'Add Service'
+                    ),
+                    '>'
+                );
+            }
+        }
+    }]);
+
+    return TrainSetup;
+}(_react2.default.Component);
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/train-component/train-component.js":[function(require,module,exports) {
 'use strict';
 
@@ -19827,6 +19930,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _trainSetupComponent = require('../train-setup-component/train-setup-component');
+
+var _trainSetupComponent2 = _interopRequireDefault(_trainSetupComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19855,16 +19962,22 @@ var Train = function (_React$Component) {
     }
 
     _createClass(Train, [{
+        key: 'newTrain',
+        value: function newTrain(values) {
+            this.setState({ name: values.name, direction: values.direction });
+        }
+    }, {
         key: 'arrival',
         value: function arrival() {
             //arrive and remove the staff token from the train.
             this.state.show = false;
-            this.state.staff = '';
+            this.state.staff = false;
+            this.props.toExchangeStaff(false);
         }
     }, {
         key: 'render',
         value: function render() {
-            if (this.state.show) {
+            if (this.state.show && this.state.name) {
                 return _react2.default.createElement(
                     'div',
                     null,
@@ -19872,13 +19985,13 @@ var Train = function (_React$Component) {
                         'h3',
                         null,
                         'Service ',
-                        this.props.name
+                        this.state.name
                     ),
                     _react2.default.createElement(
                         'p',
                         null,
                         'Staff: ',
-                        this.props.staff
+                        this.state.staff
                     ),
                     _react2.default.createElement(
                         'p',
@@ -19892,6 +20005,8 @@ var Train = function (_React$Component) {
                         'Arrive - Turn in Staff'
                     )
                 );
+            } else if (this.state.show && !this.state.name) {
+                return _react2.default.createElement(_trainSetupComponent2.default, { onNewTrain: this.newTrain });
             } else {
                 return _react2.default.createElement('div', null);
             }
@@ -19902,7 +20017,7 @@ var Train = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Train;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/block-component/block-component.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../train-setup-component/train-setup-component":"components/train-setup-component/train-setup-component.js"}],"components/block-component/block-component.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19954,19 +20069,14 @@ var Block = function (_React$Component) {
     }
 
     _createClass(Block, [{
-        key: 'giveStaff',
-        value: function giveStaff() {
-            if (this.state.staff) {
+        key: 'exchangeStaff',
+        value: function exchangeStaff(value) {
+            //pass in true: train takes the staff.
+            //pass in false: train returns staff.
+            if (value) {
                 this.setState({ staff: false, given: true });
             }
-            if (!this.state.trainname) {
-                this.setState({ staff: true, given: false });
-            }
-        }
-    }, {
-        key: 'getStaff',
-        value: function getStaff() {
-            if (!this.state.staff) {
+            if (!value) {
                 this.setState({ staff: true, given: false });
             }
         }
@@ -19988,17 +20098,17 @@ var Block = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.upend, staff: this.state.staff })
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.upend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_trainComponent2.default, { show: 'false', name: this.state.trainname, staff: this.state.staffOut, block: this.state.blockname })
+                    _react2.default.createElement(_trainComponent2.default, { show: false, staff: this.state.given, block: this.state.blockname, toExchangeStaff: this.exchangeStaff })
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.downend, staff: this.state.staff })
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.downend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
                 )
             );
         }
@@ -20092,7 +20202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64599' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '59605' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
