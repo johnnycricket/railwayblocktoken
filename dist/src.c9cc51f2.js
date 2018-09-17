@@ -19784,6 +19784,7 @@ var BlockEnds = function (_React$Component) {
         _this.state = {
             staff: true
         };
+        _this.state.staff = _this.props.staff;
         return _this;
     }
 
@@ -19793,14 +19794,14 @@ var BlockEnds = function (_React$Component) {
             if (this.state.staff) {
                 return _react2.default.createElement(
                     'button',
-                    { onClick: '' },
-                    this.props.name
+                    null,
+                    this.props.end
                 );
             } else {
                 return _react2.default.createElement(
                     'button',
                     { disabled: true },
-                    this.props.name
+                    this.props.end
                 );
             }
         }
@@ -19867,16 +19868,10 @@ var Train = function (_React$Component) {
                 return _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement('i', null),
                     _react2.default.createElement(
-                        'h1',
+                        'h3',
                         null,
-                        'Service'
-                    ),
-                    _react2.default.createElement('i', null),
-                    _react2.default.createElement(
-                        'p',
-                        null,
+                        'Service ',
                         this.props.name
                     ),
                     _react2.default.createElement(
@@ -19964,7 +19959,9 @@ var Block = function (_React$Component) {
             if (this.state.staff) {
                 this.setState({ staff: false, given: true });
             }
-            if (!this.state.trainname) {}
+            if (!this.state.trainname) {
+                this.setState({ staff: true, given: false });
+            }
         }
     }, {
         key: 'getStaff',
@@ -19972,11 +19969,6 @@ var Block = function (_React$Component) {
             if (!this.state.staff) {
                 this.setState({ staff: true, given: false });
             }
-        }
-    }, {
-        key: 'nameService',
-        value: function nameService(name) {
-            this.state.name = name;
         }
     }, {
         key: 'render',
@@ -19987,17 +19979,26 @@ var Block = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: '{this.props.upend}', staff: '{this.state.staff}' })
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        this.props.blockname
+                    )
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_trainComponent2.default, { show: 'false', name: 'this.state.trainname', staff: 'this.state.staffOut', block: 'this.state.block' })
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.upend, staff: this.state.staff })
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: '{this.props.downend}', staff: '{this.state.staff}' })
+                    _react2.default.createElement(_trainComponent2.default, { show: 'false', name: this.state.trainname, staff: this.state.staffOut, block: this.state.blockname })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.downend, staff: this.state.staff })
                 )
             );
         }
@@ -20052,7 +20053,7 @@ var App = function (_React$Component) {
                     null,
                     'Railway Block App!'
                 ),
-                _react2.default.createElement(_blockComponent2.default, { blockname: 'Found Jovial - Over Sey' })
+                _react2.default.createElement(_blockComponent2.default, { blockname: 'Found Jovial - Over Sey', upend: 'Found Jovial', downend: 'Over Sey' })
             );
         }
     }]);
@@ -20091,7 +20092,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61579' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64599' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

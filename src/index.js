@@ -6,7 +6,7 @@ class App extends React.Component {
     render() {
         return <div>
             <h1>Railway Block App!</h1>
-            <Block blockname="Found Jovial - Over Sey"></Block>
+            <Block blockname="Found Jovial - Over Sey" upend="Found Jovial" downend="Over Sey"></Block>
             </div>;
     };
 }

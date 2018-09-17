@@ -20,7 +20,7 @@ export default class Block extends React.Component {
             this.setState({staff: false, given: true})
         }
         if(!this.state.trainname) {
-            
+            this.setState({staff: true, given: false})
         }
     }
 
@@ -30,20 +30,19 @@ export default class Block extends React.Component {
         }
     }
 
-    nameService(name) {
-        this.state.name = name;
-    }
-
     render() {
         return <div>
             <div>
-                <BlockEnds end="{this.props.upend}" staff="{this.state.staff}"/>
+                <h2>{this.props.blockname}</h2>
             </div>
             <div>
-                <Train show="false" name="this.state.trainname" staff="this.state.staffOut" block="this.state.block"/>
+                <BlockEnds end={this.props.upend} staff={this.state.staff} />
             </div>
             <div>
-                <BlockEnds end="{this.props.downend}" staff="{this.state.staff}"/>
+                <Train show="false" name={this.state.trainname} staff={this.state.staffOut} block={this.state.blockname} />
+            </div>
+            <div>
+                <BlockEnds end={this.props.downend} staff={this.state.staff} />
             </div>
         </div>
     }

@@ -7,13 +7,15 @@ export default class BlockEnds extends React.Component {
         this.state = {
             staff: true
         }
+        this.state.staff = this.props.staff;
     }
+    
 
     render() {
         if(this.state.staff){
-            return <button onClick="">{this.props.name}</button>
+            return <button>{this.props.end}</button>
         } else {
-            return <button disabled>{this.props.name}</button>
+            return <button disabled>{this.props.end}</button>
         }
     }
 }

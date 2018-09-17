@@ -22,8 +22,7 @@ export default class Train extends React.Component {
     render() {
         if (this.state.show) {
             return <div>
-                <i></i><h1>Service</h1><i></i>
-                <p>{this.props.name}</p>
+                <h3>Service {this.props.name}</h3>
                 <p>Staff: {this.props.staff}</p>
                 <p>In {this.props.block}</p>
                 <button onClick={this.arrival}>Arrive - Turn in Staff</button>
