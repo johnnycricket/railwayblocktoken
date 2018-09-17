@@ -13,6 +13,7 @@ export default class Block extends React.Component {
             blockname: '',
         }
         this.state.blockname = this.props.blockname;
+        this.exchangeStaff = this.exchangeStaff.bind(this);
     }
 
     exchangeStaff(value) {

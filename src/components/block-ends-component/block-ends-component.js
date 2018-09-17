@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-
+const component = this;
 export default class BlockEnds extends React.Component {
     constructor(props) {
         super(props);

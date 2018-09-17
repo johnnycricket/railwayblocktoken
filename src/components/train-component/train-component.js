@@ -12,6 +12,7 @@ export default class Train extends React.Component {
         this.state.show = this.props.show;
         this.state.staff = this.props.staff;
         this.arrival = this.arrival.bind(this);
+        this.newTrain = this.arrival.bind(this)
     }
 
     newTrain(values){
