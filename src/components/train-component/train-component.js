@@ -10,7 +10,7 @@ export default class Train extends React.Component {
             direction: ''
         }
         this.arrival = this.arrival.bind(this);
-        this.newTrain = this.arrival.bind(this);
+        this.newTrain = this.newTrain.bind(this);
     }
 
     newTrain(values){
@@ -19,6 +19,7 @@ export default class Train extends React.Component {
     }
 
     arrival() {
+        console.log('arrival pressed');
         event.preventDefault();
         //arrive and remove the staff token from the train.
         this.setState({
@@ -32,7 +33,6 @@ export default class Train extends React.Component {
         if (this.props.staff && this.state.name) {
             return <div>
                 <h3>Service {this.state.name}</h3>
-                <p>Staff: {this.props.staff}</p>
                 <p>In {this.props.block}</p>
                 <button onClick={this.arrival}>Arrive - Turn in Staff</button>
             </div>

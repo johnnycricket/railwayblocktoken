@@ -6,7 +6,7 @@ export default class TrainSetup extends React.Component {
         super(props);
         this.state = {
             name: '',
-            direction: ''
+            direction: 'up'
         }
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleDirectionChange = this.handleDirectionChange.bind(this)

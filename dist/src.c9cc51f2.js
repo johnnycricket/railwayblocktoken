@@ -19783,26 +19783,22 @@ var BlockEnds = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (BlockEnds.__proto__ || Object.getPrototypeOf(BlockEnds)).call(this, props));
 
-        _this.state = {
-            staff: _this.props.staff
-        };
-        _this.handleClick = _this.handleClick.bind(_this);
+        _this.checkOut = _this.checkOut.bind(_this);
         return _this;
     }
 
     _createClass(BlockEnds, [{
-        key: 'handleClick',
-        value: function handleClick() {
-            this.setState({ staff: false });
+        key: 'checkOut',
+        value: function checkOut() {
             this.props.toExchangeStaff(true);
         }
     }, {
         key: 'render',
         value: function render() {
-            if (this.state.staff) {
+            if (this.props.staff) {
                 return _react2.default.createElement(
                     'button',
-                    { onClick: this.handleClick },
+                    { onClick: this.checkOut },
                     this.props.end
                 );
             } else {
@@ -19854,7 +19850,7 @@ var TrainSetup = function (_React$Component) {
 
         _this.state = {
             name: '',
-            direction: ''
+            direction: 'up'
         };
         _this.handleNameChange = _this.handleNameChange.bind(_this);
         _this.handleDirectionChange = _this.handleDirectionChange.bind(_this);
@@ -19964,7 +19960,7 @@ var Train = function (_React$Component) {
             direction: ''
         };
         _this.arrival = _this.arrival.bind(_this);
-        _this.newTrain = _this.arrival.bind(_this);
+        _this.newTrain = _this.newTrain.bind(_this);
         return _this;
     }
 
@@ -19977,6 +19973,7 @@ var Train = function (_React$Component) {
     }, {
         key: 'arrival',
         value: function arrival() {
+            console.log('arrival pressed');
             event.preventDefault();
             //arrive and remove the staff token from the train.
             this.setState({
@@ -19997,12 +19994,6 @@ var Train = function (_React$Component) {
                         null,
                         'Service ',
                         this.state.name
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        'Staff: ',
-                        this.props.staff
                     ),
                     _react2.default.createElement(
                         'p',
@@ -20111,7 +20102,7 @@ var Block = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_trainComponent2.default, { staff: this.state.given, block: this.state.blockname, toExchangeStaff: this.exchangeStaff })
+                    _react2.default.createElement(_trainComponent2.default, { staff: this.state.given, block: this.props.blockname, toExchangeStaff: this.exchangeStaff })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -20210,7 +20201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57714' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61105' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
