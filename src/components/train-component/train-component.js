@@ -19,6 +19,7 @@ export default class Train extends React.Component {
     }
 
     arrival() {
+        event.preventDefault();
         //arrive and remove the staff token from the train.
         this.setState({
             name: undefined,

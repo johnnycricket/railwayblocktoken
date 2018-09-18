@@ -22,9 +22,8 @@ export default class TrainSetup extends React.Component {
     }
 
     handleSubmit() {
-        console.log('hi')
+        event.preventDefault();
         this.props.onNewTrain({name: this.state.name, direction: this.state.direction})
-        event.preventDefault()
     }
 
     render() {

@@ -19875,9 +19875,8 @@ var TrainSetup = function (_React$Component) {
     }, {
         key: 'handleSubmit',
         value: function handleSubmit() {
-            console.log('hi');
-            this.props.onNewTrain({ name: this.state.name, direction: this.state.direction });
             event.preventDefault();
+            this.props.onNewTrain({ name: this.state.name, direction: this.state.direction });
         }
     }, {
         key: 'render',
@@ -19978,6 +19977,7 @@ var Train = function (_React$Component) {
     }, {
         key: 'arrival',
         value: function arrival() {
+            event.preventDefault();
             //arrive and remove the staff token from the train.
             this.setState({
                 name: undefined,
@@ -20210,7 +20210,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56381' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57714' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
