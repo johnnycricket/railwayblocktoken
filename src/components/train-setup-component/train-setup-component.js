@@ -1,40 +1,42 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-class TrainSetup extends React.Component {
+export default class TrainSetup extends React.Component {
     constructor(props){
-        super(props)
-        state = {
+        super(props);
+        this.state = {
             name: '',
-            direction: '',
-            show: false
+            direction: ''
         }
-        this.state.show = this.props.show;
-        this.handleChange = this.handleChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleDirectionChange = this.handleDirectionChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        console.log(event);
+    handleNameChange(event) {
+        this.setState({name: event.target.value})
+    }
+
+    handleDirectionChange(event) {
+        this.setState({direction: event.target.value})
     }
 
     handleSubmit() {
+        console.log('hi')
         this.props.onNewTrain({name: this.state.name, direction: this.state.direction})
         event.preventDefault()
     }
 
     render() {
-        if(!this.state.name && this.state.show) {
-            <div>
-                <label for="service-name">Service Name:</label>
-                <input type="text" id="service" name="service-name" value={this.state.name} />
-                <label for="direction">Direction:</label>
-                <select id="direction" name="direction" value={this.state.direction} >
-                    <option value="up">Up</option>
-                    <option value="down">Down</option>
-                </select>
-                <input type="submit">Add Service</input>>
-            </div>
-        } 
+        return <div>
+            <label htmlFor="service-name">Service Name:</label>
+            <input type="text" name="service-name" value={this.state.name} onChange={this.handleNameChange}/>
+            <label htmlFor="direction">Direction:</label>
+            <select name="direction" value={this.state.direction} onChange={this.handleDirectionChange}>
+                <option value="up">Up</option>
+                <option value="down">Down</option>
+            </select>
+            <button onClick={this.handleSubmit}>Add Service</button>  
+        </div>
     }
 }

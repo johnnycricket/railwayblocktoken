@@ -5,9 +5,8 @@ export default class BlockEnds extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            staff: true
+            staff: this.props.staff
         }
-        this.state.staff = this.props.staff;
         this.handleClick = this.handleClick.bind(this);
     }
     

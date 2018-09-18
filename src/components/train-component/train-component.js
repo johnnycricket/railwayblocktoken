@@ -6,7 +6,6 @@ export default class Train extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            staff: this.props.staff,
             name: '',
             direction: ''
         }
@@ -15,13 +14,13 @@ export default class Train extends React.Component {
     }
 
     newTrain(values){
+        console.log(values)
         this.setState({name: values.name, direction: values.direction})
     }
 
     arrival() {
         //arrive and remove the staff token from the train.
         this.setState({
-            staff: false,
             name: undefined,
             direction: undefined
         });
@@ -29,17 +28,17 @@ export default class Train extends React.Component {
     }
 
     render() {
-        if (this.state.staff && this.state.name) {
+        if (this.props.staff && this.state.name) {
             return <div>
                 <h3>Service {this.state.name}</h3>
-                <p>Staff: {this.state.staff}</p>
+                <p>Staff: {this.props.staff}</p>
                 <p>In {this.props.block}</p>
                 <button onClick={this.arrival}>Arrive - Turn in Staff</button>
             </div>
-        } else if (this.state.staff && !this.state.name) {
+        } else if (this.props.staff && !this.state.name) {
             return <TrainSetup onNewTrain={this.newTrain}></TrainSetup>
         } else {
-            return <div></div>
+            return null
         }
     }
 }
