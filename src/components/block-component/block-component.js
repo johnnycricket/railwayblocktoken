@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import blockClasses from './block-component.css'
 import BlockEnds from '../block-ends-component/block-ends-component'
 import Train from '../train-component/train-component'
 
@@ -24,7 +25,7 @@ export default class Block extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className="block">
             <div>
                 <h2>{this.props.blockname}</h2>
             </div>
