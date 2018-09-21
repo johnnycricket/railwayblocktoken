@@ -1,5 +1,5 @@
 .block {
-    width: 90%;
-    position:relative;
-    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 25% 50% auto;
+    grid-template-columns: 25% 50% 25%;
 }
