@@ -1,5 +1,5 @@
 .block {
     display: grid;
-    grid-template-rows: 25% 50% auto;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: [r1-s] 25% [r1-e][r2-s] 50% [r2-e];
+    grid-template-columns: [c1-s] 25% [c2-s] 50% [c3-s] 25% [c-e];
 }
