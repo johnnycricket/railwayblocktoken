@@ -1,0 +1,12 @@
+.block-end-left {
+  grid-row-start: r1-s;
+  grid-row-end: r1-e;
+  grid-column-start: c1-s;
+  grid-column-end: c2-s;
+}
+.block-end-right {
+  grid-row-start: r1-s;
+  grid-row-end: r1-e;
+  grid-column-start: c3-s;
+  grid-column-end: c-e;
+}

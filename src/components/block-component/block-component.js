@@ -30,13 +30,13 @@ export default class Block extends React.Component {
                 <h2>{this.props.blockname}</h2>
             </div>
             <div>
-                <BlockEnds end={this.props.upend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
+                <BlockEnds className="block-end-left" end={this.props.upend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
             </div>
             <div>
-                <Train staff={this.state.given} block={this.props.blockname} toExchangeStaff={this.exchangeStaff} />
+                <Train className="train" staff={this.state.given} block={this.props.blockname} toExchangeStaff={this.exchangeStaff} />
             </div>
             <div>
-                <BlockEnds end={this.props.downend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
+                <BlockEnds className="block-end-right" end={this.props.downend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
             </div>
         </div>
     }
