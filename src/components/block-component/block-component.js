@@ -26,18 +26,10 @@ export default class Block extends React.Component {
 
     render() {
         return <div className="block">
-            <div>
-                <h2>{this.props.blockname}</h2>
-            </div>
-            <div>
-                <BlockEnds className="block-end-left" end={this.props.upend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
-            </div>
-            <div>
-                <Train className="train" staff={this.state.given} block={this.props.blockname} toExchangeStaff={this.exchangeStaff} />
-            </div>
-            <div>
-                <BlockEnds className="block-end-right" end={this.props.downend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
-            </div>
+            <h2>{this.props.blockname}</h2>
+            <BlockEnds end={this.props.upend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />  
+            <Train staff={this.state.given} block={this.props.blockname} toExchangeStaff={this.exchangeStaff} />
+            <BlockEnds  end={this.props.downend} staff={this.state.staff} toExchangeStaff={this.exchangeStaff} />
         </div>
     }
 }

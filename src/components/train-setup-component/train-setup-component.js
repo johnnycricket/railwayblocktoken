@@ -27,7 +27,7 @@ export default class TrainSetup extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div className="train-name">
             <label htmlFor="service-name">Service Name:</label>
             <input type="text" name="service-name" value={this.state.name} onChange={this.handleNameChange}/>
             <label htmlFor="direction">Direction:</label>

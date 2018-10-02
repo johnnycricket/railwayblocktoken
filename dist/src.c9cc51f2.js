@@ -19748,7 +19748,78 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"components/block-ends-component/block-ends-component.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"index.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/block-component/block-component.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/block-ends-component/block-ends-component.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20036,6 +20107,10 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _blockComponent = require('./block-component.css');
+
+var _blockComponent2 = _interopRequireDefault(_blockComponent);
+
 var _blockEndsComponent = require('../block-ends-component/block-ends-component');
 
 var _blockEndsComponent2 = _interopRequireDefault(_blockEndsComponent);
@@ -20084,7 +20159,7 @@ var Block = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'block' },
                 _react2.default.createElement(
                     'div',
                     null,
@@ -20097,17 +20172,17 @@ var Block = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.upend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
+                    _react2.default.createElement(_blockEndsComponent2.default, { className: 'block-end-left', end: this.props.upend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_trainComponent2.default, { staff: this.state.given, block: this.props.blockname, toExchangeStaff: this.exchangeStaff })
+                    _react2.default.createElement(_trainComponent2.default, { className: 'train', staff: this.state.given, block: this.props.blockname, toExchangeStaff: this.exchangeStaff })
                 ),
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { end: this.props.downend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
+                    _react2.default.createElement(_blockEndsComponent2.default, { className: 'block-end-right', end: this.props.downend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
                 )
             );
         }
@@ -20117,7 +20192,7 @@ var Block = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Block;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../block-ends-component/block-ends-component":"components/block-ends-component/block-ends-component.js","../train-component/train-component":"components/train-component/train-component.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./block-component.css":"components/block-component/block-component.css","../block-ends-component/block-ends-component":"components/block-ends-component/block-ends-component.js","../train-component/train-component":"components/train-component/train-component.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -20129,6 +20204,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _index = require('./index.css');
+
+var _index2 = _interopRequireDefault(_index);
 
 var _blockComponent = require('./components/block-component/block-component');
 
@@ -20156,7 +20235,7 @@ var App = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'app' },
                 _react2.default.createElement(
                     'h1',
                     null,
@@ -20172,7 +20251,7 @@ var App = function (_React$Component) {
 
 var mount = document.getElementById('app');
 _reactDom2.default.render(_react2.default.createElement(App, null), mount);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/block-component/block-component":"components/block-component/block-component.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.css":"index.css","./components/block-component/block-component":"components/block-component/block-component.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -20201,7 +20280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61105' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50154' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

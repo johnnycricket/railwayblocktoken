@@ -13,9 +13,9 @@ export default class BlockEnds extends React.Component {
 
     render() {
         if(this.props.staff){
-            return <button onClick={this.checkOut}>{this.props.end}</button>
+            return <button className="" onClick={this.checkOut}>{this.props.end}</button>
         } else {
-            return <button disabled>{this.props.end}</button>
+            return <button className="" disabled>{this.props.end}</button>
         }
     }
 }
