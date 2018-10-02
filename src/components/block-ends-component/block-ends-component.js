@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import blockEndClasses from './block-ends-component.css'
+
 const component = this;
 export default class BlockEnds extends React.Component {
     constructor(props) {
@@ -13,9 +15,9 @@ export default class BlockEnds extends React.Component {
 
     render() {
         if(this.props.staff){
-            return <button className="" onClick={this.checkOut}>{this.props.end}</button>
+            return <button className={this.props.end} onClick={this.checkOut}>{this.props.a}</button>
         } else {
-            return <button className="" disabled>{this.props.end}</button>
+            return <button className={this.props.end} disabled>{this.props.a}</button>
         }
     }
 }

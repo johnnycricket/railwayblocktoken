@@ -1,12 +1,12 @@
-.block-end-left {
-  grid-row-start: r1-s;
-  grid-row-end: r1-e;
-  grid-column-start: c1-s;
-  grid-column-end: c2-s;
+.block-up {
+  grid-row-start: r2;
+  grid-row-end: r3;
+  grid-column-start: c1;
+  grid-column-end: c2;
 }
-.block-end-right {
-  grid-row-start: r1-s;
-  grid-row-end: r1-e;
-  grid-column-start: c3-s;
-  grid-column-end: c-e;
+.block-down {
+  grid-row-start: r2;
+  grid-row-end: r3;
+  grid-column-start: c3;
+  grid-column-end: ce;
 }

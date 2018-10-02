@@ -1,0 +1,6 @@
+.train-name {
+    grid-row-start: r2;
+    grid-row-end: r3;
+    grid-column-start: c2;
+    grid-column-end: c2;
+}

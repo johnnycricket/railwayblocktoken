@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import trainClasses from './train-component.css';
 import TrainSetup from '../train-setup-component/train-setup-component'
 
 export default class Train extends React.Component {
