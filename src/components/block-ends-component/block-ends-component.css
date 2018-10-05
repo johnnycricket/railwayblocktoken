@@ -10,3 +10,18 @@
   grid-column-start: c3;
   grid-column-end: ce;
 }
+
+.block-up, .block-down {
+  font-size: 1.25rem;
+  font-family: 'Merriweather', serif;
+  background-color: #D64933;
+  color: #ffffff;
+  border: none;
+  padding: .75rem .5rem;
+  border-radius: 4px;
+}
+
+.block-up:disabled, .block-down:disabled {
+  background-color: #7C7C7C;
+  color: #ffffff;
+}

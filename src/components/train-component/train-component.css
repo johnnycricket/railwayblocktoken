@@ -3,4 +3,6 @@
     grid-row-end: r3;
     grid-column-start: c2;
     grid-column-end: c2;
+    justify-self: center;
+    color: #92DCE5
 }
