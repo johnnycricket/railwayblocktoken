@@ -2,10 +2,23 @@
     display: grid;
     grid-template-rows: [r1] 25% [r2] 50% [r3] 25% [re];
     grid-template-columns: [c1] 25% [c2] 50% [c3] 25% [ce];
+<<<<<<< HEAD
     margin: 2rem 0;
     padding: 1rem 0;
     border: solid 1px #5cc1b3;
     border-left: none;
     border-right: none;
     border-bottom: none;
+=======
+    grid-column-gap: .25rem;
+    grid-row-gap: .25rem;
+}
+
+.block h2 {
+    grid-row-start: r1;
+    grid-row-end: r2;
+    grid-column-start: c1;
+    grid-column-end: ce;
+    border-bottom: solid 1px #7C7C7C;
+>>>>>>> c90270ebbe98793d0d882695f1df27ba88ed9c7e
 }

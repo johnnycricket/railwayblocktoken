@@ -3,9 +3,15 @@
     padding: 0;
 }
 body {
+<<<<<<< HEAD
     background-color:#fbfbfb;
     color: #757882;
     font-family: 'Fira Sans', sans-serif;
+=======
+    background-color:#EEE5E9;
+    color: #2B303A;
+    font-family: 'Merriweather', serif;
+>>>>>>> c90270ebbe98793d0d882695f1df27ba88ed9c7e
 }
 
 h1, h2, h3, h4, h5, h6 {
