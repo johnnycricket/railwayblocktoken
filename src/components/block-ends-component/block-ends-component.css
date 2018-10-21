@@ -10,3 +10,26 @@
   grid-column-start: c3;
   grid-column-end: ce;
 }
+
+.block-up, .block-down {
+  font-size: 1.25rem;
+  font-family: inherit;
+  padding: 1rem;
+  background: #fbfbfb;
+  margin: 0.5rem 1rem;
+  line-height: 0;
+  border: solid 1px #6ef7c8;
+  border-radius: 2px;
+  color: #5cc1b3;
+}
+
+.block-up:active, .block-down:active {
+    background: #5cc1b3;
+    color: #fbfbfb;
+}
+
+.block-up:disabled, .block-down:disabled {
+    background: #fbfbfb;
+    color: #757882;
+    border-color: #757882
+}

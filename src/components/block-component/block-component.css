@@ -2,4 +2,10 @@
     display: grid;
     grid-template-rows: [r1] 25% [r2] 50% [r3] 25% [re];
     grid-template-columns: [c1] 25% [c2] 50% [c3] 25% [ce];
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border: solid 1px #5cc1b3;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }

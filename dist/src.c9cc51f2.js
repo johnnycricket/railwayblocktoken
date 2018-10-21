@@ -19819,6 +19819,11 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/block-ends-component/block-ends-component.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/block-ends-component/block-ends-component.js":[function(require,module,exports) {
 'use strict';
 
@@ -19835,6 +19840,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _blockEndsComponent = require('./block-ends-component.css');
+
+var _blockEndsComponent2 = _interopRequireDefault(_blockEndsComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19869,14 +19878,14 @@ var BlockEnds = function (_React$Component) {
             if (this.props.staff) {
                 return _react2.default.createElement(
                     'button',
-                    { onClick: this.checkOut },
-                    this.props.end
+                    { className: this.props.end, onClick: this.checkOut },
+                    this.props.a
                 );
             } else {
                 return _react2.default.createElement(
                     'button',
-                    { disabled: true },
-                    this.props.end
+                    { className: this.props.end, disabled: true },
+                    this.props.a
                 );
             }
         }
@@ -19886,7 +19895,17 @@ var BlockEnds = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = BlockEnds;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/train-setup-component/train-setup-component.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./block-ends-component.css":"components/block-ends-component/block-ends-component.css"}],"components/train-component/train-component.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/train-setup-component/train-setup-component.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/train-setup-component/train-setup-component.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19902,6 +19921,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _trainSetupComponent = require('./train-setup-component.css');
+
+var _trainSetupComponent2 = _interopRequireDefault(_trainSetupComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19950,7 +19973,7 @@ var TrainSetup = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'train-name' },
                 _react2.default.createElement(
                     'label',
                     { htmlFor: 'service-name' },
@@ -19989,7 +20012,7 @@ var TrainSetup = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = TrainSetup;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"components/train-component/train-component.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./train-setup-component.css":"components/train-setup-component/train-setup-component.css"}],"components/train-component/train-component.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20005,6 +20028,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _trainComponent = require('./train-component.css');
+
+var _trainComponent2 = _interopRequireDefault(_trainComponent);
 
 var _trainSetupComponent = require('../train-setup-component/train-setup-component');
 
@@ -20059,7 +20086,7 @@ var Train = function (_React$Component) {
             if (this.props.staff && this.state.name) {
                 return _react2.default.createElement(
                     'div',
-                    null,
+                    { className: 'train' },
                     _react2.default.createElement(
                         'h3',
                         null,
@@ -20090,7 +20117,7 @@ var Train = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Train;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../train-setup-component/train-setup-component":"components/train-setup-component/train-setup-component.js"}],"components/block-component/block-component.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./train-component.css":"components/train-component/train-component.css","../train-setup-component/train-setup-component":"components/train-setup-component/train-setup-component.js"}],"components/block-component/block-component.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20161,29 +20188,13 @@ var Block = function (_React$Component) {
                 'div',
                 { className: 'block' },
                 _react2.default.createElement(
-                    'div',
+                    'h2',
                     null,
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        this.props.blockname
-                    )
+                    this.props.blockname
                 ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { className: 'block-end-left', end: this.props.upend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_trainComponent2.default, { className: 'train', staff: this.state.given, block: this.props.blockname, toExchangeStaff: this.exchangeStaff })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(_blockEndsComponent2.default, { className: 'block-end-right', end: this.props.downend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
-                )
+                _react2.default.createElement(_blockEndsComponent2.default, { end: 'block-up', a: this.props.upend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff }),
+                _react2.default.createElement(_trainComponent2.default, { staff: this.state.given, block: this.props.blockname, toExchangeStaff: this.exchangeStaff }),
+                _react2.default.createElement(_blockEndsComponent2.default, { end: 'block-down', a: this.props.downend, staff: this.state.staff, toExchangeStaff: this.exchangeStaff })
             );
         }
     }]);
@@ -20280,7 +20291,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50154' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50025' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
