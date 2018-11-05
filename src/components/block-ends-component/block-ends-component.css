@@ -1,17 +1,11 @@
-.block-up {
+.block-end {
   grid-row-start: r2;
   grid-row-end: r3;
   grid-column-start: c1;
   grid-column-end: c2;
 }
-.block-down {
-  grid-row-start: r2;
-  grid-row-end: r3;
-  grid-column-start: c3;
-  grid-column-end: ce;
-}
 
-.block-up, .block-down {
+.block-end {
   font-size: 1.25rem;
   font-family: inherit;
   padding: 1rem;
@@ -23,13 +17,23 @@
   color: #5cc1b3;
 }
 
-.block-up:active, .block-down:active {
+.block-end:active {
     background: #5cc1b3;
     color: #fbfbfb;
 }
 
-.block-up:disabled, .block-down:disabled {
+.block-end:disabled {
     background: #fbfbfb;
     color: #757882;
     border-color: #757882
+}
+
+svg {
+    width: 50%;
+    height: 50%;
+}
+
+path {
+    fill: #fbfbfb;
+    stroke: #757882;
 }
