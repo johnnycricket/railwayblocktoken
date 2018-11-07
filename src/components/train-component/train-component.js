@@ -34,10 +34,10 @@ export default class Train extends React.Component {
         if (this.props.staff && this.state.name) {
             return <div className="train">
                 <h3>Service {this.state.name}</h3>
-                <svg width="133" height="275" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M89 221h17v45H62c-9.389 0-17-7.611-17-17v-80H26c-9.389 0-17-7.611-17-17V53c0-9.389 7.611-17 17-17h19V26c0-9.389 7.611-17 17-17h10c9.389 0 17 7.611 17 17v10h18c9.389 0 17 7.611 17 17v99c0 9.389-7.611 17-17 17H89v52z" stroke="#979797" stroke-width="18" fill="#F4F4F4" fill-rule="evenodd"/>
+                <svg viewBox="0 0 118 218" width="100" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M78.56522 173.98055h14.7826V209H55.08697c-8.16435 0-14.78261-5.92296-14.78261-13.22957v-62.25681H23.7826C15.61826 133.51362 9 127.59066 9 120.28405v-77.0428c0-7.30662 6.61826-13.22958 14.7826-13.22958h16.52175v-7.7821C40.30435 14.92296 46.9226 9 55.08695 9h8.69566c8.16435 0 14.7826 5.92296 14.7826 13.22957v7.7821H94.2174c8.16435 0 14.78261 5.92296 14.78261 13.22958v77.0428c0 7.30661-6.61826 13.22957-14.7826 13.22957H78.56521v40.46693z" fill="#F4F4F4" stroke="#979797" stroke-width="18" fill-rule="evenodd"/>
                 </svg>
-                <button onClick={this.arrival}>Arrive - Turn in Staff</button>
+                <button class="arrive" onClick={this.arrival}>Service Arrival - Turn in Staff</button>
             </div>
         } else if (this.props.staff && !this.state.name) {
             return <TrainSetup onNewTrain={this.newTrain}></TrainSetup>

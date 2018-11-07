@@ -10,11 +10,12 @@
   font-family: inherit;
   padding: 1rem;
   background: #fbfbfb;
-  margin: 0.5rem 1rem;
+  margin: 0.5rem auto;
   line-height: 0;
   border: solid 1px #6ef7c8;
   border-radius: 2px;
   color: #5cc1b3;
+  display: block;
 }
 
 .block-end:active {
@@ -29,11 +30,11 @@
 }
 
 svg {
-    width: 50%;
-    height: 50%;
+    display: block;
+    margin: 0 auto;
 }
 
 path {
     fill: #fbfbfb;
-    stroke: #757882;
+    stroke: #92DCE5;
 }

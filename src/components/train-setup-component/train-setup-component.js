@@ -29,14 +29,19 @@ export default class TrainSetup extends React.Component {
 
     render() {
         return <div className="train-name">
-            <label htmlFor="service-name">Service Name:</label>
-            <input type="text" name="service-name" value={this.state.name} onChange={this.handleNameChange}/>
-            <label htmlFor="direction">Direction:</label>
-            <select name="direction" value={this.state.direction} onChange={this.handleDirectionChange}>
-                <option value="up">Up</option>
-                <option value="down">Down</option>
-            </select>
-            <button onClick={this.handleSubmit}>Add Service</button>  
+            <h3>Service Name and Direction</h3>
+            <div class="input-group">
+                <label htmlFor="service-name">Service Name:</label>
+                <input type="text" name="service-name" value={this.state.name} onChange={this.handleNameChange}/>
+            </div>
+            <div class="input-group">
+                <label htmlFor="direction">Direction:</label>
+                <select name="direction" value={this.state.direction} onChange={this.handleDirectionChange}>
+                    <option value="up">Up</option>
+                    <option value="down">Down</option>
+                </select>
+            </div>
+            <button class="submit-service" onClick={this.handleSubmit}>Add Service</button>  
         </div>
     }
 }

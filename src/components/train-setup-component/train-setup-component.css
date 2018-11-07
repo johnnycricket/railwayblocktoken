@@ -4,5 +4,59 @@
     grid-column-start: c2;
     grid-column-end: ce;
     justify-self: center;
-    color: #92DCE5
+    color: #92DCE5;
+    width: 100%;
+}
+
+.input-group {
+    display: block;
+    margin: 0.5em 0;
+}
+.input-group label {
+    display: block;
+}
+.input-group input {
+    font-size: 1.25rem;
+    font-family: inherit;
+    padding: 0.5em;
+    background: #fbfbfb;
+    margin: 0.5rem auto;
+    line-height: 0;
+    border: solid 1px #757882;
+    border-radius: 2px;
+    color: #757882;
+    width: 100%;
+    height: auto;
+}
+.input-group input:focus {
+    outline: none;
+}
+
+.input-group select {
+    font-size: 1.25rem;
+    font-family: inherit;
+    padding: 0.5em;
+    background: #fbfbfb;
+    margin: 0.5rem auto;
+    line-height: 0;
+    border: solid 1px #757882;
+    border-radius: 2px;
+    color: #757882;
+    width: 100%;
+    height: auto;
+}
+.input-group select:focus {
+    outline: none;
+}
+
+.submit-service {
+    font-size: 1.25rem;
+    font-family: inherit;
+    padding: 1rem;
+    background: #fbfbfb;
+    margin: 0.5rem auto;
+    line-height: 0;
+    border: solid 1px #6ef7c8;
+    border-radius: 2px;
+    color: #5cc1b3;
 }
