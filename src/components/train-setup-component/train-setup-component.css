@@ -4,7 +4,7 @@
     grid-column-start: c2;
     grid-column-end: ce;
     justify-self: center;
-    color: #92DCE5;
+    color: #757882;
     width: 100%;
 }
 
@@ -18,7 +18,7 @@
 .input-group input {
     font-size: 1.25rem;
     font-family: inherit;
-    padding: 0.5em;
+    padding: 0.5em 0;
     background: #fbfbfb;
     margin: 0.5rem auto;
     line-height: 0;
@@ -27,6 +27,7 @@
     color: #757882;
     width: 100%;
     height: auto;
+    text-indent: 10px;
 }
 .input-group input:focus {
     outline: none;
@@ -43,7 +44,7 @@
     border-radius: 2px;
     color: #757882;
     width: 100%;
-    height: auto;
+    height: 2.25em;
 }
 .input-group select:focus {
     outline: none;
@@ -53,10 +54,9 @@
     font-size: 1.25rem;
     font-family: inherit;
     padding: 1rem;
-    background: #fbfbfb;
+    background: #5cc1b3;
     margin: 0.5rem auto;
     line-height: 0;
-    border: solid 1px #6ef7c8;
     border-radius: 2px;
-    color: #5cc1b3;
+    color: #fbfbfb;
 }

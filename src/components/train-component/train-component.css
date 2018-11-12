@@ -8,18 +8,17 @@ h3 {
     grid-column-start: c2;
     grid-column-end: ce;
     justify-self: center;
-    color: #92DCE5
+    color: #757882;
 }
 
 .arrive {
     font-size: 1.25rem;
     font-family: inherit;
     padding: 1rem;
-    background: #fbfbfb;
+    background: #5cc1b3;
     margin: 0.5rem auto;
     line-height: 0;
-    border: solid 1px #6ef7c8;
     border-radius: 2px;
-    color: #5cc1b3;
+    color: #fbfbfb;
     display: block;
 }
