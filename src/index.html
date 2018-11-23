@@ -9,7 +9,8 @@
 </head>
 <body>
     <div id="app"></div>
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -21,6 +22,13 @@
             messagingSenderId: "719520338856"
         };
         firebase.initializeApp(config);
+
+        var db = firebase.database();
+        db.ref('routes/').once('value').then(
+            function(snapshot){
+                console.log(snapshot);
+            }
+        )
     </script>
     <script src="index.js"></script>
 </body>
