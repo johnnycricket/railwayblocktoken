@@ -9,13 +9,13 @@
   font-size: 1.25rem;
   font-family: inherit;
   padding: 1rem;
-  background: #fbfbfb;
+  background: #5cc1b3;
   margin: 0.5rem auto;
   line-height: 0;
-  border: solid 1px #6ef7c8;
   border-radius: 2px;
-  color: #5cc1b3;
+  color: #fbfbfb;
   display: block;
+  max-height: 1rem;
 }
 
 .block-end:active {
@@ -24,9 +24,8 @@
 }
 
 .block-end:disabled {
-    background: #fbfbfb;
-    color: #757882;
-    border-color: #757882
+    background: #757882;
+    color: #fbfbfb;
 }
 
 svg {
@@ -36,5 +35,5 @@ svg {
 
 path {
     fill: #fbfbfb;
-    stroke: #92DCE5;
+    stroke: #757882;
 }
