@@ -22,13 +22,6 @@
             messagingSenderId: "719520338856"
         };
         firebase.initializeApp(config);
-
-        var db = firebase.database();
-        db.ref('routes/').once('value').then(
-            function(snapshot){
-                console.log(snapshot);
-            }
-        )
     </script>
     <script src="index.js"></script>
 </body>
