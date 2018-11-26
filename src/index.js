@@ -11,7 +11,9 @@ class App extends React.Component {
         super(props),
         this.routeState = this.routeState.bind(this),
         this.state = {
-            route: {}
+            route: {},
+            routeName: '',
+            routekey: 'shr' //make dynamic later
         }
     }
 
@@ -20,15 +22,21 @@ class App extends React.Component {
     }
 
     routeState() {
-        const rs = routeService.getRoute();
-        console.log(rs);
-        this.setState(rs);
+        routeService.db.ref(`route/${this.state.routekey}`).on('value', function(snapshot) {
+            console.log(snapshot);
+            this.setState({routeName: snapshot.key});
+        })
+        
+    }
+
+    listBlocks() {
+        // const blocks = routeService.db.ref()
     }
 
     render() {
         return <div className="app">
             <h1>Railway Block App!</h1>
-            <Block blockname="Found Jovial - Over Sey" upend="Found Jovial" downend="Over Sey"></Block>
+            <Block blockname="???"></Block>
         </div>;
     };
 }
