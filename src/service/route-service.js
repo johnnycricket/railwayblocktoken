@@ -1,3 +1,3 @@
 export default {
-    db: firebase.database(),
+    db: firebase.database(), //okay so this is returning a promise which isn't picked up here...
 };

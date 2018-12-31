@@ -4,7 +4,7 @@ import appClasses from './index.css'
 import RouteService from './service/route-service';
 import Block from './components/block-component/block-component'
 
-const routeService = RouteService;
+let ref = RouteService.db.ref(`routes/shr`);
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class App extends React.Component {
         this.routeState = this.routeState.bind(this),
         this.state = {
             route: {},
-            routeName: '',
+            routeName: 'shr',
             routekey: 'shr' //make dynamic later
         }
     }
@@ -22,11 +22,12 @@ class App extends React.Component {
     }
 
     routeState() {
-        routeService.db.ref(`route/${this.state.routekey}`).on('value', function(snapshot) {
-            console.log(snapshot);
-            this.setState({routeName: snapshot.key});
+        ref.once('value', function(snapshot) {
+            snapshot.forEach(function(childSnap){
+                console.log(childSnap.key);
+                console.log(childSnap.val());
+            });
         })
-        
     }
 
     listBlocks() {
