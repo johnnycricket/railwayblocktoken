@@ -4,6 +4,7 @@
   "description": "toy app for having block tokens for one train in steam on model railways.",
   "main": "index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "npm": "^6.4.1",
     "parcel": "^1.9.7",
     "react": "^16.4.2",

@@ -18,16 +18,21 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.routeState();
+        this.routeState().then(s => {
+            this.setState({route: s});
+            console.log(this.state)
+        })
     }
 
     routeState() {
-        ref.once('value', function(snapshot) {
+       return ref.once('value')
+        .then(function(snapshot) {
+            let routeArray = [];
             snapshot.forEach(function(childSnap){
-                console.log(childSnap.key);
-                console.log(childSnap.val());
+                routeArray.push(childSnap.val());
             });
-        })
+            return routeArray;
+        });
     }
 
     listBlocks() {
